@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="oop_groupproject.britishcouncil.U1G1VerifyStudentViewController">
+    <VBox spacing="10" layoutX="50" layoutY="50">
+        <TextField fx:id="studentIdTextField" promptText="Enter Student ID"/>
+        <Button text="Verify" onAction="#verifyButtonOnAction"/>
+        <Label fx:id="resultLabel"/>
+        <Button text="Back" onAction="#backButtonOnAction"/>
+    </VBox>
+</AnchorPane>

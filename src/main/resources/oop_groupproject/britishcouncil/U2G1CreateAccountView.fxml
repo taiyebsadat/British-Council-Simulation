@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="oop_groupproject.britishcouncil.U2G1CreateAccountViewController">
+    <TextField fx:id="nameTextField" promptText="Name"/>
+    <TextField fx:id="idTextField" promptText="User ID"/>
+    <TextField fx:id="emailTextField" promptText="Email"/>
+    <TextField fx:id="phoneTextField" promptText="Phone"/>
+
+    <Button text="Create Account" onAction="#createButtonOnAction"/>
+    <Label fx:id="resultLabel"/>
+
+</AnchorPane>
