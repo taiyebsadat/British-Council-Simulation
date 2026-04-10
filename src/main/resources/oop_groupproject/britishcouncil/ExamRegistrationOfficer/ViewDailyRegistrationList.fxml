@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.britishcouncil.ExamRegistrationOfficer.Controller.ViewDailyRegistrationListController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+            <DatePicker fx:id="listDateDatePicker" />
+            <Button text="View List" onAction="#ViewDailyRegistrationListButton" />
+            <TableView fx:id="registrationTable" prefHeight="250.0" prefWidth="550.0">
+                <columns>
+                    <TableColumn text="RegID" fx:id="colIDCol" />
+                    <TableColumn text="Candidate" fx:id="colNameCol" />
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>
