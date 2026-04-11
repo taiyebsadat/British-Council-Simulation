@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.ExamRegistrationOfficer.Controller.cancelRegistrationController">
+    <children>
+         <Label layoutX="221.0" layoutY="54.0" text="Cancel Registration" textFill="RED" />
+         <TextField fx:id="cancelRegIDTextField" layoutX="197.0" layoutY="87.0" promptText="Registration ID" />
+         <Button layoutX="208.0" layoutY="130.0" onAction="#CancelRegistrationButton" text="Confirm Cancellation" />
+    </children>
+</AnchorPane>
