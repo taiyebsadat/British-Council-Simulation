@@ -1,18 +1,48 @@
 package oop_groupproject.britishcouncil;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class U2G5MonitorInvigilatorViewController {
+import java.io.IOException;
+import java.util.ArrayList;
 
-    @FXML private TextArea outputTextArea;
+public class U2G5MonitorInvigilatorViewController
+{
 
-    @FXML
-    public void loadButtonOnAction() {
+    @javafx.fxml.FXML
+    private TableColumn<U1G7RequestMaterial, String> timeColumn;
+    @javafx.fxml.FXML
+    private TableView<U1G7RequestMaterial> requestTableView;
+    @javafx.fxml.FXML
+    private TableColumn<U1G7RequestMaterial, String> materialTypeColumn;
 
-        U2G5MonitorInvigilator obj =
-                new U2G5MonitorInvigilator("",0,"",true);
+    @javafx.fxml.FXML
+    public void initialize() {
+        materialTypeColumn.setCellValueFactory(new PropertyValueFactory<>("materialType"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("requestTime"));
+    }
 
-        outputTextArea.setText(obj.viewStatus());
+    @javafx.fxml.FXML
+    public void loadButtonOnAction(ActionEvent actionEvent) {
+        ArrayList<U1G7RequestMaterial> requestList = new ArrayList<>();
+
+        try {
+            Helper.loadFrom("MaterialRequests.bin", requestList);
+            ObservableList<U1G7RequestMaterial> observableList = FXCollections.observableList(requestList);
+
+            requestTableView.setItems(observableList);
+
+        } catch (IOException e){
+            Helper.showAlert("Could not load request Records.");
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        Helper.changeScene(actionEvent, "SystemOperationsManagerDashboard.fxml","System Operations Manager Dashboard");
     }
 }

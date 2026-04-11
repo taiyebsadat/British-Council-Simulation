@@ -1,27 +1,35 @@
 package oop_groupproject.britishcouncil;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
-public class U1G7RequestMaterial extends Invigilator implements Serializable {
-
+public class U1G7RequestMaterial implements Serializable {
     private String materialType;
-    private int quantity;
+    private LocalDateTime requestTime;
 
-    public U1G7RequestMaterial(String name, int userId, String password, boolean active,
-                               String materialType, int quantity) {
-        super(name, userId, password, active, studentId);
+    public U1G7RequestMaterial(String materialType) {
         this.materialType = materialType;
-        this.quantity = quantity;
+        this.requestTime = LocalDateTime.now();
     }
 
-    public String sendRequest() {
+    public String getMaterialType() {
+        return materialType;
+    }
 
-        if (materialType.isEmpty() || quantity <= 0) {
-            return "Invalid request!";
-        }
+    public void setMaterialType(String materialType) {
+        this.materialType = materialType;
+    }
 
-        FileHelper.writeObject(this, "materialRequest.bin");
+    public LocalDateTime getRequestTime() {
+        return requestTime;
+    }
 
-        return "Request Sent to Manager";
+    public void setRequestTime(LocalDateTime requestTime) {
+        this.requestTime = requestTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Request: " + materialType + " | Time: " + requestTime;
     }
 }

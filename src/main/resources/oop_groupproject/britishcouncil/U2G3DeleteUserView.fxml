@@ -5,14 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.scene.layout.VBox?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="oop_groupproject.britishcouncil.U2G3DeleteUserViewController">
-    <VBox spacing="10" layoutX="50" layoutY="50">
 
-        <TextField fx:id="idTextField" promptText="User ID"/>
-        <Button text="Delete User" onAction="#deleteButtonOnAction"/>
-        <Label fx:id="resultLabel"/>
-
-    </VBox>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_groupproject.britishcouncil.U2G3DeleteUserViewController">
+   <children>
+      <TextField fx:id="userIdTextField" layoutX="226.0" layoutY="73.0" promptText="User Id" />
+      <Button layoutX="48.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+      <Button layoutX="252.0" layoutY="119.0" mnemonicParsing="false" onAction="#confirmButtonOnAction" text="Confirm Delete" />
+      <Label fx:id="deleteConfirmationLabel" layoutX="188.0" layoutY="190.0" prefHeight="43.0" prefWidth="224.0" />
+   </children>
 </AnchorPane>

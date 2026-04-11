@@ -1,28 +1,53 @@
 package oop_groupproject.britishcouncil;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.scene.control.ComboBox;
 
-public class U1G7RequestMaterialViewController {
+import java.io.IOException;
 
-    @FXML private TextField materialTextField;
-    @FXML private TextField quantityTextField;
-    @FXML private Label resultLabel;
+public class U1G7RequestMaterialViewController
+{
+    @javafx.fxml.FXML
+    private ComboBox<String> materialComboBox;
 
-    @FXML
-    public void sendButtonOnAction() {
+    @javafx.fxml.FXML
+    public void initialize() {
+        materialComboBox.getItems().addAll(
+                "Extra Answer Script",
+                "Graph Paper",
+                "OMR Sheet",
+                "Pen",
+                "Scientific Calculator"
+        );
+    }
+
+    @javafx.fxml.FXML
+    public void sendRequestButtonOnAction(ActionEvent actionEvent) {
+        String selectedMaterials = materialComboBox.getValue();
+
+        if (selectedMaterials == null || selectedMaterials.isEmpty()){
+            Helper.showAlert("Complete the fields properly");
+            return;
+        }
 
         try {
-            String material = materialTextField.getText();
-            int qty = Integer.parseInt(quantityTextField.getText());
+            // 1. Create Model Instance (DP)
+            U1G7RequestMaterial request = new U1G7RequestMaterial(selectedMaterials);
 
-            U1G7RequestMaterial obj =
-                    new U1G7RequestMaterial("",0,"",true,material,qty);
+            // 2. Write to Binary File using your Helper
+            // Manager (User 2) will read this file in U2G5
+            Helper.writeInto("MaterialRequests.bin", request);
 
-            resultLabel.setText(obj.sendRequest());
+            // 3. Optional: Clear selection and show success
+            materialComboBox.setValue(null);
 
-        } catch (Exception e) {
-            resultLabel.setText("Error occurred");
+        } catch (IOException e) {
+            Helper.showAlert("Error saving request");
         }
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        Helper.changeScene(actionEvent, "InvigilatorDashboard.fxml", "Dashboard");
     }
 }

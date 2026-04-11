@@ -1,28 +1,67 @@
 package oop_groupproject.britishcouncil;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
-public class U2G4ResetPasswordViewController {
+import java.io.IOException;
+import java.util.ArrayList;
 
-    @FXML private TextField idTextField;
-    @FXML private PasswordField passwordField;
-    @FXML private Label resultLabel;
+public class U2G4ResetPasswordViewController
+{
+    @javafx.fxml.FXML
+    private TextField userIdTextField;
+    @javafx.fxml.FXML
+    private PasswordField newPasswordField;
+    @javafx.fxml.FXML
+    private Label resetPasswordStatusLabel;
 
-    @FXML
-    public void resetButtonOnAction() {
+    @javafx.fxml.FXML
+    public void initialize() {
+        resetPasswordStatusLabel.setText("");
+    }
+
+    @javafx.fxml.FXML
+    public void savePasswordButtonOnAction(ActionEvent actionEvent) {
+        String targetId = userIdTextField.getText();
+        String newPass = newPasswordField.getText();
+
+        if (targetId.isEmpty() || newPass.isEmpty()){
+            Helper.showAlert("Any field can not be empty.");
+            return;
+        }
+        ArrayList<U2G1CreateUserAccount> userList = new ArrayList<>();
+        boolean found = false;
 
         try {
-            int id = Integer.parseInt(idTextField.getText());
-            String pass = passwordField.getText();
-
-            U2G4ResetPassword obj =
-                    new U2G4ResetPassword("",0,"",true,id,pass);
-
-            resultLabel.setText(obj.resetPassword());
-
-        } catch (Exception e) {
-            resultLabel.setText("Error occurred");
+            Helper.loadFrom("Users.bin", userList);
+            for (U2G1CreateUserAccount user : userList){
+                if (user.getUserId().equals(targetId)){
+                    user.setPass(newPass);
+                    found = true;
+                    break;
+                }
+            }
+            if (found){
+                new Helper().deleteFile("Users.bin");
+                for (U2G1CreateUserAccount user : userList){
+                    Helper.writeInto("Users.bin", user);
+                }
+                userIdTextField.clear();
+                newPasswordField.clear();
+                resetPasswordStatusLabel.setText("Password reset successful for: " + targetId);
+            } else{
+                Helper.showAlert("User ID not found.");
+            }
+        } catch (IOException e){
+            Helper.showAlert("Error accessing database.");
         }
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        Helper.changeScene(actionEvent, "SystemOperationsManagerDashboard.fxml", "System Operations Manager Dashboard");
+
     }
 }

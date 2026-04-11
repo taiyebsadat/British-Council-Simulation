@@ -1,31 +1,57 @@
 package oop_groupproject.britishcouncil;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-public class U2G6ViewDataMarks extends SystemOperationsManager implements Serializable {
+public class U2G6ViewDataMarks implements Serializable {
+    private  String studentId, studentName, examType;
+    private int marks;
 
-    private int targetId;
-
-    public U2G6ViewDataMarks(String name, int id, String pass, boolean active, int targetId) {
-        super(name, id, pass, active);
-        this.targetId = targetId;
+    public U2G6ViewDataMarks(String studentId, String studentName, String examType, int marks) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.examType = examType;
+        this.marks = marks;
     }
 
-    public String getUserData() {
+    @Override
+    public String toString() {
+        return "U2G6ViewDataMarks{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", examType='" + examType + '\'' +
+                ", marks=" + marks +
+                '}';
+    }
 
-        ArrayList<Object> users = FileHelper.readObjects("users.bin");
+    public String getStudentId() {
+        return studentId;
+    }
 
-        for (Object obj : users) {
-            User u = (User) obj;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
 
-            if (u.getUserId() == targetId) {
-                return "Name: " + u.getName()
-                        + "\nRole: " + u.getRole()
-                        + "\nActive: " + u.isActive();
-            }
-        }
+    public String getStudentName() {
+        return studentName;
+    }
 
-        return "User Not Found";
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public String getExamType() {
+        return examType;
+    }
+
+    public void setExamType(String examType) {
+        this.examType = examType;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        this.marks = marks;
     }
 }

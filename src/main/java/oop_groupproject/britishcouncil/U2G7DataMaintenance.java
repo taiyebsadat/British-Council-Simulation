@@ -1,33 +1,46 @@
 package oop_groupproject.britishcouncil;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 
-public class U2G7DataMaintenance extends SystemOperationsManager implements Serializable {
+public class U2G7DataMaintenance implements Serializable {
+    private String actionType, status;
+    private LocalDateTime timestamp;
 
-    public U2G7DataMaintenance(String name, int id, String pass, boolean active) {
-        super(name, id, pass, active);
+    public U2G7DataMaintenance(String actionType, String status) {
+        this.actionType = actionType;
+        this.status = status;
     }
 
-    public String cleanData() {
+    public String getActionType() {
+        return actionType;
+    }
 
-        ArrayList<Object> users = FileHelper.readObjects("users.bin");
-        ArrayList<Object> activeUsers = new ArrayList<>();
+    public void setActionType(String actionType) {
+        this.actionType = actionType;
+    }
 
-        int removed = 0;
+    public String getStatus() {
+        return status;
+    }
 
-        for (Object obj : users) {
-            User u = (User) obj;
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-            if (u.isActive()) {
-                activeUsers.add(u);
-            } else {
-                removed++;
-            }
-        }
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
 
-        FileHelper.overwriteFile(activeUsers, "users.bin");
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 
-        return removed + " inactive users removed";
+    @Override
+    public String toString() {
+        return "U2G7DataMaintenance{" +
+                "actionType='" + actionType + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

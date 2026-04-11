@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_groupproject.britishcouncil.SystemOperationsManagerDashboardController">
+    <VBox alignment="CENTER" layoutX="6.0" layoutY="6.0" prefHeight="388.0" prefWidth="147.0" spacing="10">
+        <Button alignment="CENTER" onAction="#goToCreateUserAccountButtonOnAction" prefWidth="200" text="Create Account" />
+        <Button onAction="#goToUpdateRoleButtonOnAction" prefWidth="200" text="Update Role" />
+        <Button alignment="CENTER" onAction="#goToDeleteUserButtonOnAction" prefWidth="200" text="Delete User" />
+        <Button alignment="CENTER" onAction="#goToResetPasswordButtonOnAction" prefWidth="200" text="Reset Password" />
+        <Button alignment="CENTER" onAction="#goToMonitorInvigilatorButtonOnAction" prefWidth="200" text="Monitor Invigilator" />
+        <Button alignment="CENTER" onAction="#goToViewDataMarksButtonOnAction" prefWidth="200" text="View Data Marks" />
+        <Button alignment="CENTER" onAction="#goToDataMaintenanceButtonOnAction" prefWidth="200" text="Data Maintenance" />
+        <Button alignment="CENTER" onAction="#goToManageUserStatusButtonOnAction" prefWidth="200" text="Manage User Status" />
+    </VBox>
+    <Label layoutX="255.0" layoutY="14.0" style="-fx-font-size: 20px;" text="System Operations Manager" />
+    <Button layoutX="522.0" layoutY="16.0" onAction="#logoutButtonOnAction" text="Logout" />
+</AnchorPane>

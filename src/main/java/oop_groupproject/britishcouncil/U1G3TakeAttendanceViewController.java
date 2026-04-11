@@ -1,30 +1,50 @@
 package oop_groupproject.britishcouncil;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-public class U1G3TakeAttendanceViewController {
+import java.io.IOException;
 
-    @FXML private TextField studentIdTextField;
-    @FXML private TextField seatTextField;
-    @FXML private ComboBox<String> statusComboBox;
-    @FXML private Label resultLabel;
+public class U1G3TakeAttendanceViewController
+{
+    @javafx.fxml.FXML
+    private CheckBox isPresentCheckBox;
+    @javafx.fxml.FXML
+    private TextField seatNoTextField;
+    @javafx.fxml.FXML
+    private TextField studentIdTextField;
+    @javafx.fxml.FXML
+    private Label confirmationLabel;
 
-    @FXML
-    public void saveButtonOnAction() {
+    @javafx.fxml.FXML
+    public void initialize() {
+        confirmationLabel.setText("");
+    }
+
+    @javafx.fxml.FXML
+    public void saveAttendanceButtonOnAction(ActionEvent actionEvent) {
+        String id = studentIdTextField.getText();
+        String seat = seatNoTextField.getText();
+
+        if (id.isEmpty() || seat.isEmpty()){
+            confirmationLabel.setText("Error! Try Again.");
+            return;
+        }
 
         try {
-            int id = Integer.parseInt(studentIdTextField.getText());
-            int seat = Integer.parseInt(seatTextField.getText());
-            String status = statusComboBox.getValue();
-
-            U1G3TakeAttendance obj =
-                    new U1G3TakeAttendance("",0,"",true,id,status,seat);
-
-            resultLabel.setText(obj.saveAttendance());
-
-        } catch (Exception e) {
-            resultLabel.setText("Error occurred");
+            U1G3TakeAttendance record = new U1G3TakeAttendance(id, seat, isPresentCheckBox.isSelected());
+            Helper.writeInto("AttendanceData.bin", record);
+            confirmationLabel.setText("Attendance saved for: " + id);
+        } catch (IOException e) {
+            Helper.showAlert("Error saving attendance.");
         }
     }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        Helper.changeScene(actionEvent, "InvigilatorDashboard.fxml", "Invigilator Dashboard");
+    }
+
 }

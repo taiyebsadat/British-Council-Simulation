@@ -2,25 +2,27 @@ package oop_groupproject.britishcouncil;
 
 import java.io.Serializable;
 
-public class U1G6EndExam extends Invigilator implements Serializable {
+public class U1G6EndExam implements Serializable {
+    private String examStatus, endTime;
 
-    private boolean examRunning;
-
-    public U1G6EndExam(String name, int userId, String password, boolean active, boolean examRunning) {
-        super(name, userId, password, active, examRunning);
-        this.examRunning = examRunning;
+    public U1G6EndExam(String examStatus, String endTime) {
+        this.examStatus = examStatus;
+        this.endTime = endTime;
     }
 
-    public String endExam() {
+    public String getExamStatus() {
+        return examStatus;
+    }
 
-        if (!examRunning) {
-            return "Exam not running!";
-        }
+    public String getEndTime() {
+        return endTime;
+    }
 
-        examRunning = false;
-
-        FileHelper.writeObject(this, "examStatus.bin");
-
-        return "Exam Ended Successfully";
+    @Override
+    public String toString() {
+        return "U1G6EndExam{" +
+                "examStatus='" + examStatus + '\'' +
+                ", endTime='" + endTime + '\'' +
+                '}';
     }
 }

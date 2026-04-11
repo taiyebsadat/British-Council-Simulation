@@ -2,53 +2,43 @@ package oop_groupproject.britishcouncil;
 
 import java.io.Serializable;
 
-public abstract class User implements Serializable {
+public class User implements Serializable {
+    private String userId, password, role;
 
-    private String name;
-    private int userId;
-    private String password;
-    private boolean active;
-
-    public User(String name, int userId, String password, boolean active) {
-        this.name = name;
+    public User(String userId, String password, String role) {
         this.userId = userId;
         this.password = password;
-        this.active = active;
+        this.role = role;
     }
 
     // Getters
-    public String getName() {
-        return name;
-    }
-
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
-
     public String getPassword() {
         return password;
     }
-
-    public boolean isActive() {
-        return active;
+    public String getRole() {
+        return role;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUserId(int userId) {
+    // Setters
+    public void setUserId(String userId) {
         this.userId = userId;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    // Polymorphism
-    public abstract String getRole();
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_groupproject.britishcouncil.U1G5MarkScriptSubmissionViewController">
+   <children>
+      <Button layoutX="41.0" layoutY="31.0" mnemonicParsing="false" onAction="#backButonOnAction" text="Back" />
+      <TextField fx:id="studentIdTextField" layoutX="225.0" layoutY="77.0" promptText="Student ID" />
+      <Button layoutX="246.0" layoutY="119.0" mnemonicParsing="false" onAction="#markSubmissionButtonOnAction" text="Mark Submission" />
+      <Label fx:id="confirmSubmissionLabel" layoutX="229.0" layoutY="175.0" prefHeight="32.0" prefWidth="141.0" text="Label" />
+   </children>
+</AnchorPane>

@@ -1,42 +1,40 @@
 package oop_groupproject.britishcouncil;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class U1G1VerifyStudentViewController {
-
-    @FXML private TextField studentIdTextField;
-    @FXML private Label resultLabel;
+    @FXML private Label statusLabel;
+    @FXML
+    private TextField verifyStudentIdTextField;
 
     @FXML
-    public void verifyButtonOnAction() {
-
+    public void verifyButtonOnAction(ActionEvent actionEvent) {
+        String id = verifyStudentIdTextField.getText();
+        if (id.isEmpty()){
+            statusLabel.setText("Please enter an ID");
+            return;
+        }
+        ArrayList<String> registeredList = new ArrayList<>();
         try {
-            int id = Integer.parseInt(studentIdTextField.getText());
-
-            if (String.valueOf(id).length() != 7) {
-                resultLabel.setText("Invalid ID format");
-                return;
+            Helper.loadFrom("RegisteredStudents.bin", registeredList);
+            if (registeredList.contains(id)) {
+                statusLabel.setText("Verified: Student is eligible.");
+            } else {
+                statusLabel.setText("Error: Not found.");
             }
-
-            U1G1VerifyStudent model = new U1G1VerifyStudent("",0,"",true,id);
-            String result = model.verify();
-
-            resultLabel.setText(result);
-
-        } catch (Exception e) {
-            resultLabel.setText("Error occurred");
+        } catch (IOException e) {
+            Helper.showAlert("Database not found.");
         }
     }
 
     @FXML
-    public void backButtonOnAction() {
-        try {
-            Stage stage = (Stage) studentIdTextField.getScene().getWindow();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("User2Dashboard.fxml"))));
-        } catch (Exception e) { e.printStackTrace(); }
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        Helper.changeScene(actionEvent, "InvigilatorDashboard.fxml", "Invigilator Dashboard");
     }
 }

@@ -1,43 +1,28 @@
 package oop_groupproject.britishcouncil;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-public class U2G4ResetPassword extends SystemOperationsManager implements Serializable {
+public class U2G4ResetPassword implements Serializable {
+    private String userId, newPassword;
 
-    private int userId;
-    private String newPassword;
-
-    public U2G4ResetPassword(String name, int id, String pass, boolean active,
-                             int userId, String newPassword) {
-        super(name, id, pass, active);
+    public U2G4ResetPassword(String userId, String newPassword) {
         this.userId = userId;
         this.newPassword = newPassword;
     }
 
-    public String resetPassword() {
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-        if (newPassword.length() < 8) {
-            return "Password must be at least 8 characters";
-        }
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
 
-        ArrayList<Object> users = FileHelper.readObjects("users.bin");
+    public String getUserId() {
+        return userId;
+    }
 
-        boolean found = false;
-
-        for (Object obj : users) {
-            User u = (User) obj;
-
-            if (u.getUserId() == userId) {
-                u.setPassword(newPassword);
-                found = true;
-            }
-        }
-
-        if (!found) return "User Not Found";
-
-        FileHelper.overwriteFile(users, "users.bin");
-
-        return "Password Reset Successfully";
+    public String getNewPassword() {
+        return newPassword;
     }
 }

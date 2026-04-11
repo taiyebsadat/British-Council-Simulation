@@ -1,18 +1,37 @@
 package oop_groupproject.britishcouncil;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.scene.control.TextArea;
 
-public class U2G7DataMaintenanceViewController {
+import java.io.IOException;
 
-    @FXML private Label resultLabel;
+public class U2G7DataMaintenanceViewController
+{
+    @javafx.fxml.FXML
+    private TextArea logTextArea;
 
-    @FXML
-    public void cleanButtonOnAction() {
+    @javafx.fxml.FXML
+    public void initialize() {
+        logTextArea.setText("System Ready for Maintenance.../n");
+    }
 
-        U2G7DataMaintenance obj =
-                new U2G7DataMaintenance("",0,"",true);
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        Helper.changeScene(actionEvent, "SystemOperationsManagerDashboard.fxml", "Manager Dashboard");
+    }
 
-        resultLabel.setText(obj.cleanData());
+    @javafx.fxml.FXML
+    public void cleanupButtonOnAction(ActionEvent actionEvent) {
+        try {
+            new Helper().deleteFile("MaterialRequests.bin");
+
+            U2G7DataMaintenance log = new U2G7DataMaintenance("Database cleanup", "Success");
+            Helper.writeInto("MaintenanceHistory.bin", log);
+
+            logTextArea.appendText(log.toString());
+            logTextArea.appendText("Temporary reqruests cleared.");
+        } catch(IOException e){
+            logTextArea.appendText("Error during maintenance.");
+        }
     }
 }
