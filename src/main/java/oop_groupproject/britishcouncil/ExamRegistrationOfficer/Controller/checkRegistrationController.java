@@ -1,7 +1,7 @@
 package oop_groupproject.britishcouncil.ExamRegistrationOfficer.Controller;
 
-import com.example.britishcouncil.ExamRegistrationOfficer.Model.ExamRegistrationOfficer;
-import com.example.britishcouncil.ExamRegistrationOfficer.Model.Registration;
+import oop_groupproject.britishcouncil.ExamRegistrationOfficer.Model.ExamRegistrationOfficer;
+import oop_groupproject.britishcouncil.ExamRegistrationOfficer.Model.Registration;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;

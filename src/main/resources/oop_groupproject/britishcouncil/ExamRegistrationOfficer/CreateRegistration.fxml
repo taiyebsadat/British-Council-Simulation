@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.ExamRegistrationOfficer.Controller.createRegistrationOfficerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_groupproject.britishcouncil.ExamRegistrationOfficer.Controller.createRegistrationOfficerController">
     <children>
          <Label layoutX="212.0" layoutY="28.0" style="-fx-font-size: 18;" text="Create New Registration" />
          <Button layoutX="226.0" layoutY="222.0" onAction="#submitRegistrationButton" text="Submit Registration" />

@@ -13,7 +13,7 @@ public class CandidateDashboardController {
     private void openWindow(String fxmlFile, String title) {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/britishcouncil/IeltsCandidate/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/oop_groupproject/britishcouncil/IeltsCandidate/" + fxmlFile));
             Parent root = loader.load();
 
             Stage stage = new Stage();

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.HelloController">
+<VBox alignment="CENTER" spacing="20.0" prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_groupproject.britishcouncil.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.ExamRegistrationOfficer.Controller.generateRegistrationSlipController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_groupproject.britishcouncil.ExamRegistrationOfficer.Controller.generateRegistrationSlipController">
     <children>
          <Label layoutX="221.0" layoutY="65.0" text="Print Registration Slip" />
          <TextField fx:id="slipRegIDTextField" layoutX="182.0" layoutY="102.0" promptText="Enter ID" />

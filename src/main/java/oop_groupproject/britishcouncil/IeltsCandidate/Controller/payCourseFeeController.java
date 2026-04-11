@@ -1,7 +1,7 @@
 package oop_groupproject.britishcouncil.IeltsCandidate.Controller;
 
-import com.example.britishcouncil.IeltsCandidate.Model.IeltsCandidate;
-import com.example.britishcouncil.IeltsCandidate.Model.PaymentRecord;
+import oop_groupproject.britishcouncil.IeltsCandidate.Model.IeltsCandidate;
+import oop_groupproject.britishcouncil.IeltsCandidate.Model.PaymentRecord;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

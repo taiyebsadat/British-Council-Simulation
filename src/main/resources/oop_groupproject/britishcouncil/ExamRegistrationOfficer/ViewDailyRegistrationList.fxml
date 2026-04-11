@@ -4,7 +4,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.britishcouncil.ExamRegistrationOfficer.Controller.ViewDailyRegistrationListController"
+            fx:controller="oop_groupproject.britishcouncil.ExamRegistrationOfficer.Controller.ViewDailyRegistrationListController"
             prefHeight="400.0" prefWidth="600.0">
     <children>
         <VBox layoutX="20.0" layoutY="20.0" spacing="10.0">

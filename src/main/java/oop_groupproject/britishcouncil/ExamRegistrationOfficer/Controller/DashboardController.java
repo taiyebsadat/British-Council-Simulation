@@ -13,7 +13,7 @@ public class DashboardController {
     private void openWindow(String fxmlFile, String title) {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/britishcouncil/ExamRegistrationOfficer/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/oop_groupproject/britishcouncil/ExamRegistrationOfficer/" + fxmlFile));
             Parent root = loader.load();
 
             Stage stage = new Stage();

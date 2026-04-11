@@ -1,6 +1,6 @@
 package oop_groupproject.britishcouncil.ExamRegistrationOfficer.Model;
 
-import com.example.britishcouncil.IeltsCandidate.Model.IeltsCandidate;
+import oop_groupproject.britishcouncil.IeltsCandidate.Model.IeltsCandidate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
