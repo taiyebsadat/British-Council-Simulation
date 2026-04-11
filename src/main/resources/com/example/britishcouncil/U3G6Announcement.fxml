@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.U3G6AnnouncementController">
+   <children>
+      <Label layoutX="32.0" layoutY="37.0" text="trainerId" />
+      <TextField fx:id="trainerIdTextField" layoutX="88.0" layoutY="33.0" />
+      <Label layoutX="280.0" layoutY="37.0" text="targetAudience" />
+      <ComboBox fx:id="targetAudienceComboBox" layoutX="374.0" layoutY="33.0" prefWidth="150.0" />
+      <Label layoutX="32.0" layoutY="99.0" text="subject" />
+      <TextField fx:id="subjectTextField" layoutX="88.0" layoutY="95.0" />
+      <Label layoutX="286.0" layoutY="99.0" text="isLive" />
+      <TextField fx:id="isLiveTextField" layoutX="345.0" layoutY="95.0" />
+      <Label layoutX="18.0" layoutY="222.0" text="messageBody" />
+      <TextArea fx:id="messagebodyTextArea" layoutX="115.0" layoutY="183.0" prefHeight="175.0" prefWidth="432.0" />
+      <Button layoutX="252.0" layoutY="141.0" mnemonicParsing="false" onAction="#AnnouncementButton" text="Announcement" />
+      <Button layoutX="29.0" layoutY="346.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
+   </children>
+</AnchorPane>

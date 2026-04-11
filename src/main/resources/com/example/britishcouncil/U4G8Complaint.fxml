@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.U4G8ComplaintController">
+   <children>
+      <Label layoutX="34.0" layoutY="46.0" text="candidateId" />
+      <Label layoutX="34.0" layoutY="111.0" text="sessionTitle" />
+      <Label layoutX="318.0" layoutY="55.0" text="trainingFee" />
+      <ComboBox fx:id="trainingFeeCB" layoutX="388.0" layoutY="51.0" prefWidth="150.0" />
+      <TextField fx:id="candidateIdTF" layoutX="106.0" layoutY="43.0" />
+      <TextField fx:id="sessionTittleTF" layoutX="106.0" layoutY="107.0" />
+      <Label layoutX="300.0" layoutY="111.0" text="registrationStatus" />
+      <RadioButton fx:id="registrationStatusconfirmRB" layoutX="406.0" layoutY="111.0" mnemonicParsing="false" text="confirm">
+         <toggleGroup>
+            <ToggleGroup fx:id="Stat" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="registrationStatuspendingRB" layoutX="476.0" layoutY="111.0" mnemonicParsing="false" text="pending" toggleGroup="$Stat" />
+      <Label layoutX="33.0" layoutY="169.0" text="sessionDate" />
+      <DatePicker fx:id="sessionDateDatePicker" layoutX="106.0" layoutY="165.0" />
+      <Button layoutX="266.0" layoutY="287.0" mnemonicParsing="false" onAction="#ApprovedButton" text="Approved">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BackButton" layoutX="114.0" layoutY="290.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="25.0" prefWidth="94.0" text="Back" />
+   </children>
+</AnchorPane>

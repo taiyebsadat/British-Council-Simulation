@@ -1,8 +1,11 @@
-module oop_groupproject.britishcouncil {
+module com.example.britishcouncil {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires javafx.graphics;
+    requires jdk.javadoc;
 
 
-    opens oop_groupproject.britishcouncil to javafx.fxml;
-    exports oop_groupproject.britishcouncil;
+    opens com.example.britishcouncil to javafx.fxml;
+    exports com.example.britishcouncil;
 }

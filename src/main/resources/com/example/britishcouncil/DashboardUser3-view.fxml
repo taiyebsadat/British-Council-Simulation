@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.DashboardUser3Controller">
+   <children>
+      <Button layoutX="41.0" layoutY="91.0" mnemonicParsing="false" onAction="#UploadPracticeMaterialButton" text="Upload Practice Material" />
+      <Button layoutX="41.0" layoutY="169.0" mnemonicParsing="false" onAction="#PublishMockTestScoreButton" text="Publish Mock Test Score" />
+      <Button layoutX="41.0" layoutY="243.0" mnemonicParsing="false" onAction="#ViewUpcomingClassSchedule" text="View Upcoming Class Schedule" />
+      <Button layoutX="41.0" layoutY="325.0" mnemonicParsing="false" onAction="#ProvideStudentFeedbackButton" text="Provide Student Feedback" />
+      <Button layoutX="389.0" layoutY="91.0" mnemonicParsing="false" onAction="#PostStudyResourceLinkButton" text="Post Study Resource Link" />
+      <Button layoutX="389.0" layoutY="169.0" mnemonicParsing="false" onAction="#PostClassAnnouncementsButton" text="Post Class Announcements" />
+      <Button layoutX="389.0" layoutY="243.0" mnemonicParsing="false" onAction="#RequestLeaveButton" text="Request Leave" />
+      <Button layoutX="389.0" layoutY="325.0" mnemonicParsing="false" onAction="#ViewPaymentSlipButton" text="View Payment Slip" />
+      <Label layoutX="186.0" layoutY="45.0" prefHeight="17.0" prefWidth="160.0" text="          Dashboarduser3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

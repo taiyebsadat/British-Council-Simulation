@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="481.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.britishcouncil.U3G3ClassScheduleController">
+   <children>
+      <Label layoutX="36.0" layoutY="37.0" text="trainerId" />
+      <TextField fx:id="trainerIdTextField" layoutX="89.0" layoutY="33.0" />
+      <Label layoutX="36.0" layoutY="87.0" text="classDate" />
+      <DatePicker fx:id="classDateDatePicker" layoutX="96.0" layoutY="83.0" />
+      <Button layoutX="287.0" layoutY="415.0" mnemonicParsing="false" onAction="#schedulebtn" text="Schedule" />
+      <Label layoutX="30.0" layoutY="286.0" text="topicsToCover" />
+      <TextArea fx:id="topicsToCoverTextArea" layoutX="128.0" layoutY="254.0" prefHeight="97.0" prefWidth="484.0" />
+      <Label layoutX="308.0" layoutY="123.0" text="classTime" />
+      <ComboBox fx:id="classTimeCB" layoutX="390.0" layoutY="119.0" prefWidth="150.0" />
+      <Label layoutX="297.0" layoutY="37.0" text="roomNumber" />
+      <ComboBox fx:id="roomNumberCB" layoutX="390.0" layoutY="33.0" prefWidth="150.0" />
+      <Button layoutX="390.0" layoutY="415.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="25.0" prefWidth="65.0" text="Back" />
+   </children>
+</AnchorPane>
